@@ -45,8 +45,9 @@ img{max-width:100%;display:block;height:auto}
 .scroll-down{margin-top:12px;background:#fff;color:#000;width:36px;height:36px;border-radius:999px;display:grid;place-items:center;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.3)}
 
 /* About */
-.about-grid{display:grid;grid-template-columns:280px 1fr;gap:28px;align-items:start}
-.about-thumb img{border-radius:12px}
+.about-grid{display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:start}
+.about-thumb img{border-radius:12px;}
+.about-thumb {padding: 20px 0 0px 10px;}
 .about-list{margin:12px 0 0 1em}
 
 /* Cards (Services) */
@@ -90,9 +91,13 @@ img{max-width:100%;display:block;height:auto}
 }
 .btn-primary:hover{opacity:.9}
 .hidden{position:absolute !important;left:-9999px !important}
+.contact-form input.ch{
+  width:auto;
+  margin-left: 20px;
+}
 
 /* Footer */
-.site-footer{padding:32px 0;color:#777}
+.site-footer{padding:0px 0 20px 0;color:#777}
 .site-footer a{color:inherit}
 
 /* Responsive */

@@ -1,0 +1,115 @@
+:root{
+  --bg:#e6e9e2;
+  --body:#111;
+  --muted:#6b6b6b;
+  --card:#ffffff;
+  --accent:#111;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: "Noto Sans JP", system-ui, -apple-system, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  color:var(--body);
+  background:var(--bg);
+  line-height:1.8;
+}
+img{max-width:100%;display:block;height:auto}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+
+.section{padding:64px 0}
+.section-title{
+  text-align:center;
+  font-size:28px;
+  margin:0 0 28px;
+  letter-spacing:.04em;
+}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:20;background:rgba(230,233,226,.85);backdrop-filter: blur(6px);border-bottom:1px solid #ddd}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;gap:10px;align-items:center;color:inherit;text-decoration:none;font-weight:700}
+.logo img{width:36px;height:36px;border-radius:50%}
+.site-nav{display:flex;gap:20px}
+.site-nav a{color:var(--body);text-decoration:none;font-weight:500}
+.site-nav a:hover{text-decoration:underline}
+.nav-toggle{display:none;border:0;background:transparent;font-size:26px}
+
+/* Hero */
+.hero{position:relative;isolation:isolate}
+.hero-bg{width:100%;height:420px;object-fit:cover;display:block;border-radius:20px;margin:20px auto 0;max-width:1100px}
+.hero-overlay{position:absolute;inset:0;display:block;max-width:1100px;margin:0 auto;border-radius:20px;box-shadow: inset 0 -120px 120px rgba(0,0,0,.55)}
+.hero-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;color:#fff}
+.hero h1{font-size:32px;margin:0;text-shadow:0 3px 12px rgba(0,0,0,.6)}
+.hero p{font-size:18px;margin:0;text-shadow:0 2px 8px rgba(0,0,0,.55)}
+.scroll-down{margin-top:12px;background:#fff;color:#000;width:36px;height:36px;border-radius:999px;display:grid;place-items:center;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:280px 1fr;gap:28px;align-items:start}
+.about-thumb img{border-radius:12px}
+.about-list{margin:12px 0 0 1em}
+
+/* Cards (Services) */
+.card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.card{background:var(--card);border-radius:16px;overflow:hidden;box-shadow:0 1px 10px rgba(0,0,0,.05)}
+.card img{aspect-ratio:16/9;object-fit:cover}
+.card-body{padding:16px}
+.card-body h3{margin:0 0 8px;font-size:18px}
+
+/* Works */
+.works-columns{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.works-columns h3{margin:0 0 6px}
+.works-columns ul{margin:0 0 16px 1em}
+
+/* FAQ */
+.faq{background:#fff;border-radius:12px;margin:10px 0;padding:12px 16px}
+.faq summary{cursor:pointer;font-weight:600}
+
+/* Contact */
+.contact-wrap{background:transparent}
+.contact-card{background:#fff;border-radius:16px;box-shadow:0 1px 12px rgba(0,0,0,.06);padding:28px}
+.contact-lead{color:var(--muted);margin-top:-6px}
+.contact-form{display:grid;gap:14px;max-width:720px;margin:18px auto 0}
+.contact-form label{display:grid;gap:8px;font-weight:600}
+.contact-form input,
+.contact-form textarea,
+.contact-form select{
+  width:100%;
+  padding:12px 14px;
+  border:1px solid #ddd;border-radius:10px;
+  font:inherit;
+}
+.contact-form .consent{display:flex;align-items:center;gap:8px;font-weight:500}
+.btn-primary{
+  background:var(--accent);
+  color:#fff;
+  border:0;border-radius:12px;
+  padding:12px 18px;
+  font-weight:700;
+  cursor:pointer;
+}
+.btn-primary:hover{opacity:.9}
+.hidden{position:absolute !important;left:-9999px !important}
+
+/* Footer */
+.site-footer{padding:32px 0;color:#777}
+.site-footer a{color:inherit}
+
+/* Responsive */
+.sp-only{display:none}
+@media (max-width: 1024px){
+  .hero-bg{height:380px}
+  .works-columns{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width: 768px){
+  .nav-toggle{display:block}
+  .site-nav{display:none;position:absolute;right:12px;top:64px;background:#fff;padding:12px 16px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.1);flex-direction:column}
+  .site-nav a{padding:6px 2px}
+  .about-grid{grid-template-columns:1fr;gap:16px}
+  .card-grid{grid-template-columns:1fr}
+  .works-columns{grid-template-columns:1fr}
+  .hero-bg{height:300px;border-radius:0;max-width:100%;margin:0}
+  .hero-overlay{border-radius:0;max-width:100%}
+  .hero-content{padding:0 20px}
+  .sp-only{display:inline}
+}

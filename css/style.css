@@ -35,7 +35,7 @@ a:hover, a:focus{ text-decoration: underline; }
 .site-header{position:sticky;top:0;z-index:20;background:rgba(230,233,226,.85);backdrop-filter: blur(6px);border-bottom:1px solid #ddd}
 .header-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
 .logo{display:flex;gap:10px;align-items:center;color:inherit;text-decoration:none;font-weight:700}
-.logo img{width:69px;height:47px; /*border-radius:50%;*/}
+.logo img{width:auto;height:47px; /*border-radius:50%;*/}
 .site-nav{display:flex;gap:20px}
 .site-nav a{color:var(--body);text-decoration:none;font-weight:500}
 .site-nav a:hover{text-decoration:underline}
@@ -153,4 +153,64 @@ a:hover, a:focus{ text-decoration: underline; }
   .hero-overlay{border-radius:0;max-width:100%}
   .hero-content{padding:0 20px}
   .sp-only{display:inline}
+}
+
+/* ===============================
+   Link styling (PC & Mobile 共通)
+   =============================== */
+
+/* 本文のリンクは常時アンダーラインで判別可能に（サイトのダークトーンに合わせる） */
+a {
+  color: var(--body);
+  text-decoration: underline;
+  text-decoration-thickness: .08em;
+  text-underline-offset: .18em;
+}
+
+/* ホバー/フォーカス時は少し強調＆アクセシビリティ強化 */
+a:hover,
+a:focus {
+  text-decoration-thickness: .12em;
+}
+
+a:focus-visible {
+  outline: 2px solid rgba(0,0,0,.35);
+  outline-offset: 2px;
+}
+
+/* ナビやボタン風リンクは下線を出さない（既存トーン維持） */
+.site-nav a,
+.btn-primary,
+.hero .scroll-down {
+  text-decoration: none;
+}
+
+/* カードや見出し内のリンクがうるさく見える場合は、必要に応じて局所的に上書きしてね
+.card-body a { text-decoration: underline; }
+*/
+
+/* ===============================
+   Mobile adjustments
+   =============================== */
+@media (max-width: 768px) {
+  /* ハンバーガーの色（iOSデフォ青を打ち消し、サイトトーンに統一） */
+  .nav-toggle{
+    color: var(--body);
+    background: transparent;
+    border: none;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  /* 自己紹介：プロフィール画像と本文の間をさらに詰める */
+  .about-thumb { margin-bottom: 4px; }
+
+  /* 自己紹介・実績：読みやすさのため左右に適度な余白 */
+  .section.container { padding-left: 20px; padding-right: 20px; }
+
+  /* スマホ時のグリッドの隙間を微調整（詰めすぎ防止で控えめ） */
+  .about-grid { gap: 12px; }
+
+  /* モバイルメニュー内リンクの色も本文と統一（青リンク防止） */
+  .site-nav a { color: var(--body); }
 }

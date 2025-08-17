@@ -214,3 +214,16 @@ a:focus-visible {
   /* モバイルメニュー内リンクの色も本文と統一（青リンク防止） */
   .site-nav a { color: var(--body); }
 }
+/* ============================
+   リンクデザイン調整
+   ============================ */
+a {
+  color: #333; /* 本文より少し濃いグレー or サイトのアクセントカラー */
+  text-decoration: underline; /* 下線を出してリンクとわかりやすく */
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+a:hover {
+  color: #000; /* ホバー時に濃くする（またはアクセントカラーに） */
+  text-decoration: none; /* ホバー時に下線を消す or 別の演出 */
+}

@@ -17,3 +17,14 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     }
   });
 });
+
+// プロフィール画像を 5回に1回 p2.png に差し替える
+document.addEventListener("DOMContentLoaded", function() {
+  const profileImg = document.querySelector(".about-thumb img");
+  if (profileImg) {
+    const random = Math.floor(Math.random() * 5) + 1; // 1〜5の乱数
+    if (random === 1) {
+      profileImg.src = "img/p2.png";
+    }
+  }
+});

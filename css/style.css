@@ -240,3 +240,19 @@ a:hover {
   color: #fff;
   opacity: 0.9;     /* 既存のホバー演出を残す */
 }
+/* ===== About: 画像が無いときは1カラムに ===== */
+.about-grid:not(:has(.about-thumb)) {
+  grid-template-columns: 1fr;
+}
+.about-grid:not(:has(.about-thumb)) .about-text {
+  grid-column: 1 / -1; /* 全幅に広げる */
+}
+
+/* PCのときだけ本文幅をほどよく（読みやすさ向上・中央寄せ） */
+@media (min-width: 769px) {
+  .about-grid:not(:has(.about-thumb)) .about-text {
+    max-width: 72ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

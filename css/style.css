@@ -51,7 +51,7 @@ a:hover, a:focus{ text-decoration: underline; }
 .scroll-down{margin-top:12px;background:#fff;color:#000;width:36px;height:36px;border-radius:999px;display:grid;place-items:center;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.3)}
 
 /* About */
-.about-grid{display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:start}
+.about-grid{display:grid;grid-template-columns:240px 1fr;gap:20px;align-items:start}
 .about-thumb img{border-radius:12px;}
 .about-thumb {padding: 20px 0 0px 0px;}
 .about-list{margin:12px 0 0 1em}
@@ -254,5 +254,14 @@ a:hover {
     max-width: 72ch;
     margin-left: auto;
     margin-right: auto;
+  }
+}
+/* スマホ時のプロフィール画像サイズ調整 */
+@media (max-width: 768px) {
+  .about-thumb img {
+    width: 240px;
+    max-width: 100%;
+    margin: 0 auto; /* 中央寄せ */
+    display: block;
   }
 }

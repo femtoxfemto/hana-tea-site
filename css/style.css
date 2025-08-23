@@ -265,3 +265,37 @@ a:hover {
     display: block;
   }
 }
+/* ===== Fade-in ===== */
+[data-fade] {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms ease;
+  will-change: opacity, transform;
+}
+
+[data-fade].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 右や左からも出したい時（任意） */
+[data-fade="right"] { transform: translateX(18px); }
+[data-fade="left"]  { transform: translateX(-18px); }
+
+/* 表示時は常に 0 に収束 */
+[data-fade="right"].is-visible,
+[data-fade="left"].is-visible {
+  transform: translateX(0);
+}
+
+/* 動きを好まないユーザー対応 */
+@media (prefers-reduced-motion: reduce) {
+  [data-fade] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+

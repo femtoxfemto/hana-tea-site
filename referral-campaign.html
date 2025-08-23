@@ -19,12 +19,41 @@
 
   gtag('config', 'G-WCDE3BHBVL');
 </script>
+  <style>
 
+/* ===== Fade-in ===== */
+[data-fade] {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms ease;
+  will-change: opacity, transform;
+}
+[data-fade].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+[data-fade="right"] { transform: translateX(18px); }
+[data-fade="left"]  { transform: translateX(-18px); }
+[data-fade="right"].is-visible,
+[data-fade="left"].is-visible {
+  transform: translateX(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-fade] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+  </style>
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="logo">
+      <a href="index.html" class="logo" data-fade>
         <img src="img/logo.png" alt="HANA TEA">
       </a>
       <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">☰</button>
@@ -39,9 +68,9 @@
   </header>
 
   <section class="hero" aria-label="メインイメージ">
-    <img class="hero-bg" src="img/campaign-main.jpg" alt="ハナティーの紹介キャンペーン 自動送信">
+    <img class="hero-bg" src="img/campaign-main.jpg" alt="ハナティーの紹介キャンペーン 自動送信" data-fade>
     <div class="hero-overlay"></div>
-    <div class="hero-content container">
+    <div class="hero-content container" data-fade data-fade-delay="100">
       <h1>費用ゼロ！Googleフォームで<br class="sp-only">お友達紹介キャンペーンを自動化</h1>
       <p>入力 → 記録 → 自動メール送信までを、<br class="sp-only">シンプル構成で運用開始。</p>
     </div>
@@ -49,33 +78,33 @@
 
   <main>
     <section class="section container">
-      <h2 class="section-title">こんなお悩み、ありませんか？</h2>
-      <ul>
+      <h2 class="section-title" data-fade>こんなお悩み、ありませんか？</h2>
+      <ul data-fade data-fade-delay="100">
         <li>ECプラットフォーム（Shopify / Shopserve など）に紹介機能がない</li>
         <li>専用ASPは高額（年間50〜150万円）で導入に踏み切れない</li>
         <li>手作業ではミスや手間が不安…現実的じゃない</li>
       </ul>
-      <p>そこで、<strong>Googleフォーム + スプレッドシート</strong>を使って、追加費用なしで運用できる仕組みをご用意します。</p>
+      <p data-fade data-fade-delay="200">そこで、<strong>Googleフォーム + スプレッドシート</strong>を使って、追加費用なしで運用できる仕組みをご用意します。</p>
     </section>
 
     <section class="section container">
-      <h2 class="section-title">実現できること</h2>
+      <h2 class="section-title" data-fade>実現できること</h2>
       <div class="card-grid">
-        <article class="card">
+        <article class="card" data-fade data-fade-delay="50">
           <img src="img/campaign-1m.jpg" alt="Googleフォーム例">
           <div class="card-body">
             <h3>1. 友だちのメールを入力</h3>
             <p>紹介者がフォームからお友達のメールアドレスを入力。シンプルで迷わないUI。</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-fade data-fade-delay="150">
           <img src="img/campaign-2m.jpg" alt="スプレッドシート記録">
           <div class="card-body">
             <h3>2. 入力内容を自動記録</h3>
             <p>フォームの内容はスプレッドシートに自動蓄積。特典付与の履歴管理にそのまま使えます。</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-fade data-fade-delay="250">
           <img src="img/campaign-3m.jpg" alt="自動メール送信">
           <div class="card-body">
             <h3>3. お友達へ自動メール送信</h3>
@@ -86,15 +115,15 @@
     </section>
 
     <section class="section container">
-      <h2 class="section-title">提供内容</h2>
+      <h2 class="section-title" data-fade>提供内容</h2>
       <div class="card-grid">
-        <article class="card">
+        <article class="card" data-fade data-fade-delay="100">
           <div class="card-body">
             <h3>Googleフォーム</h3>
             <p>入力されたメールアドレス宛に、<strong>固定文面</strong>のメールを自動送信する設定を構築します。</p>
           </div>
         </article>
-        <article class="card">
+        <article class="card" data-fade data-fade-delay="200">
           <div class="card-body">
             <h3>スプレッドシート</h3>
             <p>フォーム入力を自動記録し、紹介実績の台帳としてそのまま運用できます。</p>
@@ -104,15 +133,15 @@
     </section>
 
     <section class="section container">
-      <h2 class="section-title">ご用意いただくもの</h2>
-      <ol>
+      <h2 class="section-title" data-fade>ご用意いただくもの</h2>
+      <ol data-fade data-fade-delay="100">
         <li><strong>Gmailアドレス</strong>（送信元として使用。フォーム設定のため、当面は認証情報の共有が必要です）</li>
         <li><strong>紹介キャンペーン概要文</strong>（フォーム冒頭に表示）</li>
         <li><strong>お友達に送るメール文面</strong>（キャンペーン説明・クーポンコードなど）</li>
         <li>（任意）<strong>フォーム用のメイン画像</strong></li>
       </ol>
-      <p class="contact-lead">高額ASPを導入せず、まずは小さく始めたいチームに最適です。</p>
-      <p><a class="btn-primary" href="index.html#contact">無料で相談する</a></p>
+      <p class="contact-lead" data-fade data-fade-delay="200">高額ASPを導入せず、まずは小さく始めたいチームに最適です。</p>
+      <p data-fade data-fade-delay="300"><a class="btn-primary" href="index.html#contact">無料で相談する</a></p>
     </section>
   </main>
 
@@ -123,5 +152,36 @@
   </footer>
 
   <script src="js/script.js"></script>
+  <script>
+
+// ===== Fade-in Observer =====
+(function () {
+  function run() {
+    var targets = document.querySelectorAll('[data-fade]');
+    if (!targets.length) return;
+    if (!('IntersectionObserver' in window)) {
+      targets.forEach(function (el) { el.classList.add('is-visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        var delay = parseInt(el.getAttribute('data-fade-delay') || '0', 10);
+        if (delay) el.style.transitionDelay = delay + 'ms';
+        el.classList.add('is-visible');
+        obs.unobserve(el);
+      });
+    }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.2 });
+    targets.forEach(function (el) { io.observe(el); });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run);
+  } else {
+    run();
+  }
+})();
+
+  </script>
 </body>
 </html>

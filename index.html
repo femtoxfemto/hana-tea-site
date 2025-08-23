@@ -22,11 +22,41 @@
 
 <meta name="google-site-verification" content="h06CFFHwi3DatIS8CsYKYV7Sp0ate-09-0Ge92d9Vek" />
 
+  <style>
+
+/* ===== Fade-in ===== */
+[data-fade] {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms ease;
+  will-change: opacity, transform;
+}
+[data-fade].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+[data-fade="right"] { transform: translateX(18px); }
+[data-fade="left"]  { transform: translateX(-18px); }
+[data-fade="right"].is-visible,
+[data-fade="left"].is-visible {
+  transform: translateX(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-fade] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+  </style>
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#" class="logo">
+      <a href="#" class="logo" data-fade>
         <img src="img/logo.png" alt="HANA TEA">
         <!-- <span>HANA TEA</span> -->
       </a>
@@ -42,9 +72,9 @@
   </header>
 
   <section class="hero" aria-label="メインイメージ">
-    <img class="hero-bg" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1920&auto=format&fit=crop" alt="葛飾区のECサイトマーケター「ハナティー」">
+    <img class="hero-bg" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1920&auto=format&fit=crop" alt="葛飾区のECサイトマーケター「ハナティー」" data-fade>
     <div class="hero-overlay"></div>
-    <div class="hero-content container">
+    <div class="hero-content container" data-fade data-fade-delay="100">
       <h1>ECサイト運営・SEOならお任せください</h1>
       <p>Webマーケティング歴15年以上、<br class="sp-only">集客改善の戦略立案〜実行を一貫対応</p>
       <!-- <a href="#about" class="scroll-down" aria-label="下へスクロール">⌄</a> -->
@@ -53,12 +83,12 @@
 
   <main>
     <section id="about" class="section container">
-      <h2 class="section-title">自己紹介</h2>
+      <h2 class="section-title" data-fade>自己紹介</h2>
       <div class="about-grid">
-        <div class="about-thumb">
+        <div class="about-thumb" data-fade="right" data-fade-delay="50">
           <img src="img/p.png" alt="プロフィール">
         </div> 
-        <div class="about-text">
+        <div class="about-text" data-fade data-fade-delay="150">
           <p>東京都葛飾区在住のWebマーケター HANA TEA です。ECサイト構築・SEO対策・集客改善など、売上につながる戦略から実行までを一貫してサポートします。</p>
           <p>本業では、フロントエンジニア／デザイナーからWebディレクターを経て、現在はWebサービス全体の企画・改善をリードする役割を15年以上担当してきました。副業では、気仙沼の海の幸を活かした惣菜EC「<a href="https://www.saikichi.jp/" target="_blank">斉吉</a>」にてサイトリニューアル・SEO・メルマガ・キャンペーンを一貫して手がけ、売上・集客の大幅改善を実現。現在も継続的にコンサルティングを行い、運用改善をサポートしています。</p>
           <ul class="about-list">
@@ -71,10 +101,10 @@
     </section>
 
  <section id="services" class="section container">
-  <h2 class="section-title">提供サービス</h2>
+  <h2 class="section-title" data-fade>提供サービス</h2>
   <div class="card-grid">
 
-    <article class="card">
+    <article class="card" data-fade data-fade-delay="50">
       <a href="referral-campaign.html"><img src="img/a.jpg" alt="お友達紹介キャンペーン・SEO"></a>
       <div class="card-body">
         <h3>Webマーケティング・集客支援</h3>
@@ -89,7 +119,7 @@
       </div>
     </article>
 
-    <article class="card">
+    <article class="card" data-fade data-fade-delay="150">
       <a href="https://www.saikichi.jp/" target="_blank"><img src="img/d.jpg" alt="サイトリニューアル企画"></a>
       <div class="card-body">
         <h3>ホームページ/LP制作・デザイン設計</h3>
@@ -103,7 +133,7 @@
       </div>
     </article>
 
-    <article class="card">
+    <article class="card" data-fade data-fade-delay="250">
       <img src="img/c.jpg" alt="データ分析">
       <div class="card-body">
         <h3>データ分析・改善提案</h3>
@@ -115,7 +145,7 @@
       </div>
     </article>
 
-    <article class="card">
+    <article class="card" data-fade data-fade-delay="350">
       <a href="https://menta.work/user/16676" target="_blank"><img src="img/b.jpg" alt="ハナティーのメンタリング"></a>
       <div class="card-body">
         <h3>メンタープラン（Web初心者向け）</h3>
@@ -134,8 +164,8 @@
 </section>
 
     <section id="works" class="section container">
-      <h2 class="section-title">実績</h2>
-      <div class="works-columns">
+      <h2 class="section-title" data-fade>実績</h2>
+      <div class="works-columns" data-fade data-fade-delay="100">
         <div>
           <h3>EC/SEO</h3>
           <ul>
@@ -160,23 +190,23 @@
     </section>
 
     <section id="faq" class="section container">
-      <h2 class="section-title">よくある質問</h2>
-      <details class="faq">
+      <h2 class="section-title" data-fade>よくある質問</h2>
+      <details class="faq" data-fade data-fade-delay="50">
         <summary>初めての依頼ですが、どのように進めればよいですか？</summary>
         <p>現状ヒアリング → 課題整理 → 施策提案 → ご承認後に実行、の順で進めます。小さく検証し、学びを反映して改善します。</p>
       </details>
-      <details class="faq">
+      <details class="faq" data-fade data-fade-delay="150">
         <summary>予算が限られていても依頼できますか？</summary>
         <p>可能です。効果の高い施策に優先度をつけ、段階的に実行します。</p>
       </details>
-      <details class="faq">
+      <details class="faq" data-fade data-fade-delay="250">
         <summary>SEOと広告、どちらを優先すべきですか？</summary>
         <p>短期は広告、長期はSEOの両立が最適です。現状に応じて配分をご提案します。</p>
       </details>
     </section>
 
     <section id="contact" class="section contact-wrap">
-      <div class="container contact-card">
+      <div class="container contact-card" data-fade>
         <h2 class="section-title">お問い合わせ</h2>
         <p class="contact-lead" style="text-align: center;">ご相談・お見積りは無料です。フォーム送信後、通常2営業日以内にご連絡します。</p>
 
@@ -221,5 +251,36 @@
     </div>
   </footer>
     <script src="js/script.js"></script>
+    <script>
+
+// ===== Fade-in Observer =====
+(function () {
+  function run() {
+    var targets = document.querySelectorAll('[data-fade]');
+    if (!targets.length) return;
+    if (!('IntersectionObserver' in window)) {
+      targets.forEach(function (el) { el.classList.add('is-visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        var delay = parseInt(el.getAttribute('data-fade-delay') || '0', 10);
+        if (delay) el.style.transitionDelay = delay + 'ms';
+        el.classList.add('is-visible');
+        obs.unobserve(el);
+      });
+    }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.2 });
+    targets.forEach(function (el) { io.observe(el); });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run);
+  } else {
+    run();
+  }
+})();
+
+    </script>
 </body>
 </html>

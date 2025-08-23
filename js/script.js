@@ -28,3 +28,37 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 });
+
+// ===== Fade-in Observer =====
+(function () {
+  const targets = document.querySelectorAll('[data-fade]');
+  if (!targets.length) return;
+
+  // IO 未対応ブラウザは即時表示
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+
+      const el = entry.target;
+
+      // スタッガー（遅延）設定: data-fade-delay="120" など
+      const delay = parseInt(el.getAttribute('data-fade-delay') || '0', 10);
+      if (delay) el.style.transitionDelay = `${delay}ms`;
+
+      el.classList.add('is-visible');
+      obs.unobserve(el); // 一度だけ
+    });
+  }, {
+    root: null,
+    rootMargin: '0px 0px -10% 0px', // 下端に来る前に発火
+    threshold: 0.2
+  });
+
+  targets.forEach(el => io.observe(el));
+})();
+
